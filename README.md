@@ -1,5 +1,6 @@
 # metalsmith-move-up
 [![travis][travis-badge]][travis-url]
+[![git][git-badge]][git-url]
 [![npm][npm-badge]][npm-url]
 [![standard][standard-badge]][standard-url]
 [![nearform][nearform-badge]][nearform-url]
@@ -84,6 +85,8 @@ Copyright Dean McDonnell 2015, Licensed under [MIT](./LICENSE)
 
 [travis-badge]: https://img.shields.io/travis/mcdonnelldean/metalsmith-move-up.svg?style=flat-square
 [travis-url]: https://travis-ci.org/mcdonnelldean/metalsmith-move-up
+[git-badge]: https://img.shields.io/github/release/mcdonnelldean/metalsmith-move-up.svg?style=flat-square
+[git-url]: https://github.com/mcdonnelldean/metalsmith-move-up/releases
 [npm-badge]: https://img.shields.io/npm/v/metalsmith-move-up.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/metalsmith-move-up
 [standard-badge]: https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square
