@@ -1,4 +1,8 @@
 # metalsmith-move-up
+[![travis][travis-badge]][travis-url]
+[![npm][npm-badge]][npm-url]
+[![standard][standard-badge]][standard-url]
+[![nearform][nearform-badge]][nearform-url]
 
 __metalsmith-move-up__ is a [MetalSmith][] plugin for moving the full contents of a directory up one or more
 levels. By default this plugin will move everything in your destination directory up one. __metalsmith-move-up__
@@ -78,6 +82,14 @@ _See our [Contribution Guide][] for information on obtaining the source and an o
 
 Copyright Dean McDonnell 2015, Licensed under [MIT](./LICENSE)
 
+[travis-badge]: https://img.shields.io/travis/mcdonnelldean/metalsmith-move-up.svg?style=flat-square
+[travis-url]: https://travis-ci.org/mcdonnelldean/metalsmith-move-up
+[npm-badge]: https://img.shields.io/npm/v/metalsmith-move-up.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/metalsmith-move-up
+[standard-badge]: https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square
+[standard-url]: https://npmjs.org/package/standard
+[nearform-badge]: https://img.shields.io/badge/sponsored%20by-nearForm-red.svg?style=flat-square
+[nearform-url]: https://nearform.com
 [Metalsmith]: http://metalsmith.io
 [MultiMatch]: https://www.npmjs.com/package/minimatch
 [MiniMatch]: https://www.npmjs.com/package/minimatch
