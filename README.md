@@ -53,7 +53,7 @@ metalsmith.use(moveUp(
 ))
 ```
 
-_ __Note:__ In the case of multiple patterns, each pattern is passed as another param, there is no need to
+__Note:__ _In the case of multiple patterns, each pattern is passed as another param, there is no need to
 wrap them further._
 
 ### Options
