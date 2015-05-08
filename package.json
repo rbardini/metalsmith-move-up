@@ -1,0 +1,38 @@
+{
+  "name": "metalsmith-move-up",
+  "version": "0.0.1",
+  "description": "a MetalSmith plugin for moving the full contents of a directory up one or more levels",
+  "main": "plugin.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "tape test/*.js | faucet"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mcdonnelldean/metalsmith-move-up.git"
+  },
+  "keywords": [
+    "metalsmith",
+    "directory",
+    "plugin"
+  ],
+  "author": "Dean McDonnell <mcdonnelldean@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcdonnelldean/metalsmith-move-up/issues"
+  },
+  "homepage": "https://github.com/mcdonnelldean/metalsmith-move-up",
+  "devDependencies": {
+    "pre-commit": "^1.0.7",
+    "standard": "^3.7.1"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "lodash": "^3.8.0",
+    "multimatch": "^2.0.0"
+  }
+}
