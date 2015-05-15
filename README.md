@@ -92,7 +92,7 @@ Copyright Dean McDonnell 2015, Licensed under [MIT](./LICENSE)
 [standard-badge]: https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square
 [standard-url]: https://npmjs.org/package/standard
 [nearform-badge]: https://img.shields.io/badge/sponsored%20by-nearForm-red.svg?style=flat-square
-[nearform-url]: https://nearform.com
+[nearform-url]: http://nearform.com
 [Metalsmith]: http://metalsmith.io
 [MultiMatch]: https://www.npmjs.com/package/minimatch
 [MiniMatch]: https://www.npmjs.com/package/minimatch
