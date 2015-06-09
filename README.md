@@ -86,10 +86,10 @@ metalsmith.use(moveUp({
   "destination": "./dest",
   "plugins": {
     "metalsmith-move-up": {
-      "opts": { "dot": "false"},
+      "opts": {"dot": "true"},
       "transforms": [
-        {"pattern": "**", "by": "2"}
-        {"pattern": "posts/*", "by": "2", { "dot": "false"}}
+        {"pattern": "**", "by": "2"},
+        {"pattern": "posts/*", "by": "2", {"dot": "false"}}
       ]
     }
   }
