@@ -1,5 +1,5 @@
 # Contributing
-__metalsmith-move-up__ is an __open project__ and encourages participation. If you feel you
+Metalsmith MoveUp is an __open project__ and encourages participation. If you feel you
 can help in any way, be it with examples, extra testing, or new features please be our guest.
 
 ## Helping out
@@ -16,7 +16,7 @@ specialities, if you have any questions, simply open an issue [Issues Section][]
 GitHub.
 
 ## Obtaining the Source
-In order to obtain the source for __metalsmith-move-up__ we first suggest you fork it in
+In order to obtain the source for Metalsmith MoveUp we first suggest you fork it in
 Github. After this is done, navigate to a suitable directory on your machine and run:
 
 ```
@@ -29,14 +29,14 @@ This will pull your fork into a new folder `/metalsmith-move-up`, move to this d
 cd metalsmith-move-up
 ```
 
-Finally, install __metalsmith-move-up__'s dependencies from npm:
+Finally, install Metalsmith MoveUp's dependencies from npm:
 
 ```
 npm install
 ```
 
 ## Running Tests and Linting
-__metalsmith-move-up__'s tests are written using [Tape][], a [TAP][] compliant testing
+Metalsmith MoveUp's tests are written using [Tape][], a [TAP][] compliant testing
 module, [Faucet] is used to pretty print the TAP stream. Tests are located in the `/test`
 folder and can be ran with the following command:
 
@@ -44,7 +44,7 @@ folder and can be ran with the following command:
 npm run test
 ```
 
-For linting and related checks, __metalsmith-move-up__ uses [JSStandard][]. Linting can be
+For linting and related checks, Metalsmith MoveUp uses [JSStandard][]. Linting can be
 performed with the following command:
 
 ```
@@ -69,7 +69,7 @@ Next, create a branch for your contribution:
 git checkout -b name-of-my-branch
 ```
 
-__metalsmith-move-up__ uses [precommit][] to ensure that tests pass and your code is linted
+Metalsmith MoveUp uses [precommit][] to ensure that tests pass and your code is linted
 before allowing a commit to be created. Unfortunately this means most visual git tools will not
 allow commits. To create a commit at the command line simply do:
 

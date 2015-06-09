@@ -5,16 +5,17 @@
 [![standard][standard-badge]][standard-url]
 [![nearform][nearform-badge]][nearform-url]
 
-__metalsmith-move-up__ is a [MetalSmith][] plugin for moving the full contents of a directory up one or more
-levels. By default this plugin will move everything in your destination directory up one. __metalsmith-move-up__
-Supports multiple patterns, which will be processed in the order they are provided, allowing for more complex
+Metalsmith MoveUp is a [MetalSmith][] plugin for moving the full contents of a directory up one or more
+levels. By default this plugin will move everything in your destination directory up one. Metalsmith MoveUp
+supports multiple transforms, which are processed in the order they are provided, allowing for more complex
 transforms to be done with a single call.
 
-For globbing support we use [multimatch][], which itself is based on [minimatch][]. To make matching easier
-we set dot matching to true meaning a global match can be done using a single globstar `**`.
+For globbing support we use [minimatch][]. To make matching easier we set dot matching to true meaning a global
+match can be done using a single globstar `**`. MiniMatch options can be provided as a global or on a per transform
+basis.
 
 ## Installation
-To install __metalsmith-move-up__, simply use npm:
+To install Metalsmith MoveUp, simply use npm:
 
 ```
 npm install metalsmith-move-up --save
@@ -22,8 +23,9 @@ npm install metalsmith-move-up --save
 
 ## Usage
 The example below can be found and ran from the [examples](./examples/) folder; it demonstrates
-how to use __metalsmith-move-up__ in a couple of different ways in a node.js app.
+how to use Metalsmith MoveUp in a couple of different ways in a node.js app.
 
+### Javascript
 ```javascript
 'use strict'
 
@@ -34,47 +36,84 @@ var metalsmith = require('metalsmith'),
 // build folder always represents the root for operations.
 metalsmith.use(moveUp())
 
-// globbing is supported via minimatch. The by count
-// moves everything N or as many times as possible. This
-// means if a given match only has one path part, it
-// will only be moved up one directory.
+// defaults are added as needed so input is easier. Input
+// is simplified where possible. both lines will have a
+// default .by of 1 and will use dot:true for mini-match.
+metalsmith.use(moveUp('pages/*'))
+metalsmith.use(moveUp({pattern: 'pages/*'}))
+
+// multiple simple transforms are also supported.
+metalsmith.use(moveUp([
+  'lib/**',
+  'test/*'
+]))
+
+// multiple, order specific, transforms can be done with one
+// call. Each job only begins after the previous one finishes.
+metalsmith.use(moveUp([
+  '!*.css',
+  'index.css'
+]))
+
+// the .by field moves everything N or as many times as
+// possible. This means if a given match only has one path
+// part, it will only be moved up one directory.
 metalsmith.use(moveUp({
   pattern: 'pages/*',
   by: 2
 }))
 
-// combination rules are supported to help with filtering
-// more specifically. Simply use an array of glob strings.
+// globbing is supported via minimatch. default options for
+// minimatch can be supplied at a global level using the .opts
+// field. Transforms are added to the .transforms array, any
+// transform that does not have a .opts field will get the
+// global .opts value. This is a replace, not a merge.
 metalsmith.use(moveUp({
-  pattern: ['pages/*', '!*.css'],
-  by: 1
+  opts: {
+    dot: false
+  },
+  transforms: [
+    {pattern: 'pages/*', by: 2},
+    {pattern: 'css/*', by: 2, opts: {dot: true}}
+  ]
 }))
-
-// multiple, order specific, transforms can be done with one
-// call. Each job only begins after the previous one finishes.
-metalsmith.use(moveUp(
-    {pattern: ['pages/docs/*', '!*.css'], by: 1},
-    {pattern: 'docs/feature.html', by: 1}
-))
 ```
 
-__Note:__ _In the case of multiple patterns, each pattern is passed as another param, there is no need to
-wrap them further._
+### Metalsmith JSON
+```json
+{
+  "source": "./src",
+  "destination": "./dest",
+  "plugins": {
+    "metalsmith-move-up": {
+      "opts": {"dot": "true"},
+      "transforms": [
+        {"pattern": "**", "by": "2"},
+        {"pattern": "posts/*", "by": "2", "opts": {"dot": "false"}}
+      ]
+    }
+  }
+}
+```
 
-### Options
-The options object has two fields, if no options are passed a default pattern will be ran that pulls
-all applicable files and folders in the build directory up by one.
+### Transform
+The transform object has three fields, if no transforms are passed a default pattern will be ran that
+pulls all applicable files and folders in the build directory up by one.
 
 ##### _pattern_
-The glob pattern to use when locating files and directories for moving, can be a string or an array of
-strings. see both [multimatch][] and [minimatch][] for example patterns.
+The glob pattern to use when locating files and directories for moving. See both [minimatch][] for
+example patterns.
 
 ##### _by_
 The maximum number of path parts to remove. Matches with less path segments than the count will have
 all of their segments removed, as such, they will end up in the root (destination) folder.
 
+##### _opts_
+The options to use with minimatch, order is field > global > default each overriding the last. Note
+that these options do not merge, they overwrite.
+
 ## Contributing
-__metalsmith-move-up__ is an __open project__ and encourages participation. If you feel you can help in
+Metalsmith MoveUp is an __open project__ and encourages participation. If you feel you can help in
 any way, be it with examples, extra testing, or new features please be our guest.
 
 _See our [Contribution Guide][] for information on obtaining the source and an overview of the tooling used._
