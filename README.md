@@ -89,7 +89,7 @@ metalsmith.use(moveUp({
       "opts": {"dot": "true"},
       "transforms": [
         {"pattern": "**", "by": "2"},
-        {"pattern": "posts/*", "by": "2", {"dot": "false"}}
+        {"pattern": "posts/*", "by": "2", "opts": {"dot": "false"}}
       ]
     }
   }
