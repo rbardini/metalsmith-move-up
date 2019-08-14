@@ -55,12 +55,12 @@ In both cases any issues will be outputted to the console window.
 
 ## Making a Contribution
 If you have something you would like to contribute first ensure your master branch is up
-to date with ours, we assume a remote named mcdonnelldean exists that points to the master
+to date with ours, we assume a remote named rbardini exists that points to the master
 repo.
 
 ```
 git checkout master
-git pull --rebase mcdonnelldean master
+git pull --rebase rbardini master
 ```
 
 Next, create a branch for your contribution:
@@ -88,7 +88,7 @@ out to master and rebase again to ensure you have the latest source:
 
 ```
 git checkout master
-git pull --rebase mcdonnelldean master
+git pull --rebase rbardini master
 git push -f origin master
 ```
 

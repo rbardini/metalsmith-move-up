@@ -13,19 +13,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/mcdonnelldean/metalsmith-move-up.git"
+    "url": "http://github.com/rbardini/metalsmith-move-up.git"
   },
   "keywords": [
     "metalsmith",
     "directory",
     "plugin"
   ],
-  "author": "Dean McDonnell <mcdonnelldean@outlook.com>",
+  "author": "Rafael Bardini <rafael@rbardini.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mcdonnelldean/metalsmith-move-up/issues"
+    "url": "https://github.com/rbardini/metalsmith-move-up/issues"
   },
-  "homepage": "https://github.com/mcdonnelldean/metalsmith-move-up",
+  "homepage": "https://github.com/rbardini/metalsmith-move-up",
   "devDependencies": {
     "faucet": "0.0.1",
     "pre-commit": "^1.0.7",
