@@ -1,21 +1,24 @@
 var moveUp = require('../lib/plugin'),
-    tape = require('tape'),
-    _ = require('lodash')
+    tape = require('tape')
 
-var filesMock = {
-  'index.js': {},
-  'posts/one.md': {},
-  'posts/two.md': {},
-  'posts/~draft.md': {},
-  'lib/js/index.js': {},
-  'bin/.git/.gitignore': {}
+function getFilesMock () {
+  return {
+    'index.js': {},
+    'posts/one.md': {},
+    'posts/two.md': {},
+    'posts/~draft.md': {},
+    'lib/js/index.js': {},
+    'bin/.git/.gitignore': {}
+  }
 }
 
-var metalsmithMock = {}
+function getMetalsmithMock () {
+  return {}
+}
 
 tape('By default, all files and directories are moved up one', function (test) {
-  var testFiles = _.cloneDeep(filesMock),
-      metalsmith = _.cloneDeep(metalsmithMock)
+  var testFiles = getFilesMock(),
+      metalsmith = getMetalsmithMock()
 
   test.plan(6)
   moveUp()(testFiles, metalsmith, function () {
@@ -29,8 +32,8 @@ tape('By default, all files and directories are moved up one', function (test) {
 })
 
 tape('string input is supported', function (test) {
-  var testFiles = _.cloneDeep(filesMock),
-      metalsmith = _.cloneDeep(metalsmithMock)
+  var testFiles = getFilesMock(),
+      metalsmith = getMetalsmithMock()
 
   test.plan(6)
   moveUp('**')(testFiles, metalsmith, function () {
@@ -44,8 +47,8 @@ tape('string input is supported', function (test) {
 })
 
 tape('Files are moved not copied', function (test) {
-  var testFiles = _.cloneDeep(filesMock),
-      metalsmith = _.cloneDeep(metalsmithMock)
+  var testFiles = getFilesMock(),
+      metalsmith = getMetalsmithMock()
 
   test.plan(10)
   moveUp()(testFiles, metalsmith, function () {
@@ -64,8 +67,8 @@ tape('Files are moved not copied', function (test) {
 })
 
 tape('Simple transforms are supported', function (test) {
-  var testFiles = _.cloneDeep(filesMock),
-      metalsmith = _.cloneDeep(metalsmithMock),
+  var testFiles = getFilesMock(),
+      metalsmith = getMetalsmithMock(),
       transforms = [
         'posts/*',
         'lib/**'
@@ -87,8 +90,8 @@ tape('Simple transforms are supported', function (test) {
 })
 
 tape('custom transforms are supported', function (test) {
-  var testFiles = _.cloneDeep(filesMock),
-      metalsmith = _.cloneDeep(metalsmithMock),
+  var testFiles = getFilesMock(),
+      metalsmith = getMetalsmithMock(),
       transform = {
         pattern: 'bin/.git/.gitignore',
         by: 2
@@ -107,8 +110,8 @@ tape('custom transforms are supported', function (test) {
 })
 
 tape('custom minimatch options are supported', function (test) {
-  var testFiles = _.cloneDeep(filesMock),
-      metalsmith = _.cloneDeep(metalsmithMock),
+  var testFiles = getFilesMock(),
+      metalsmith = getMetalsmithMock(),
       transforms = {
         opts: {
           dot: false
@@ -130,8 +133,8 @@ tape('custom minimatch options are supported', function (test) {
 })
 
 tape('multiple transforms are supported', function (test) {
-  var testFiles = _.cloneDeep(filesMock),
-      metalsmith = _.cloneDeep(metalsmithMock),
+  var testFiles = getFilesMock(),
+      metalsmith = getMetalsmithMock(),
       transformOne = {
         pattern: 'bin/.git/.gitignore',
         by: 2
@@ -154,3 +157,36 @@ tape('multiple transforms are supported', function (test) {
     test.notOk(testFiles['posts/~draft.md'])
   })
 })
+
+tape('custom minimatch options with multiple transforms are supported', function (test) {
+  var testFiles = getFilesMock(),
+      metalsmith = getMetalsmithMock(),
+      transformOne = {
+        pattern: 'bin/**',
+        by: 2
+      },
+      transformTwo = {
+        pattern: 'posts/*',
+        by: 2
+      },
+      transforms = {
+        opts: {
+          dot: false
+        },
+        transforms: [transformOne, transformTwo]
+      }
+
+  test.plan(8)
+  moveUp(transforms)(testFiles, metalsmith, function () {
+    test.ok(testFiles['bin/.git/.gitignore'])
+    test.ok(testFiles['one.md'])
+    test.ok(testFiles['two.md'])
+    test.ok(testFiles['~draft.md'])
+
+    test.notOk(testFiles['.gitignore'])
+    test.notOk(testFiles['posts/one.md'])
+    test.notOk(testFiles['posts/two.md'])
+    test.notOk(testFiles['posts/~draft.md'])
+  })
+})
+
