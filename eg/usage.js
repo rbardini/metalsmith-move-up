@@ -1,7 +1,7 @@
 'use strict'
 
-var metalsmith = require('metalsmith'),
-    moveUp = require('metalsmith-move-up')
+var metalsmith = require('metalsmith')
+var moveUp = require('metalsmith-move-up')
 
 // move everything in the build folder up one. The
 // build folder always represents the root for operations.
@@ -11,7 +11,7 @@ metalsmith.use(moveUp())
 // is simplified where possible. both lines will have a
 // default .by of 1 and will use dot:true for minimatch.
 metalsmith.use(moveUp('pages/*'))
-metalsmith.use(moveUp({pattern: 'pages/*'}))
+metalsmith.use(moveUp({ pattern: 'pages/*' }))
 
 // mutiple simple transforms are also supported.
 metalsmith.use(moveUp([
@@ -44,7 +44,7 @@ metalsmith.use(moveUp({
     dot: false
   },
   transforms: [
-    {pattern: 'pages/*', by: 2},
-    {pattern: 'css/*', by: 2, opts: {dot: true}}
+    { pattern: 'pages/*', by: 2 },
+    { pattern: 'css/*', by: 2, opts: { dot: true } }
   ]
 }))

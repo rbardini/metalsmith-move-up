@@ -1,5 +1,5 @@
-var moveUp = require('../lib/plugin'),
-    tape = require('tape')
+var moveUp = require('../lib/plugin')
+var tape = require('tape')
 
 function getFilesMock () {
   return {
@@ -17,8 +17,8 @@ function getMetalsmithMock () {
 }
 
 tape('By default, all files and directories are moved up one', function (test) {
-  var testFiles = getFilesMock(),
-      metalsmith = getMetalsmithMock()
+  var testFiles = getFilesMock()
+  var metalsmith = getMetalsmithMock()
 
   test.plan(6)
   moveUp()(testFiles, metalsmith, function () {
@@ -32,8 +32,8 @@ tape('By default, all files and directories are moved up one', function (test) {
 })
 
 tape('string input is supported', function (test) {
-  var testFiles = getFilesMock(),
-      metalsmith = getMetalsmithMock()
+  var testFiles = getFilesMock()
+  var metalsmith = getMetalsmithMock()
 
   test.plan(6)
   moveUp('**')(testFiles, metalsmith, function () {
@@ -47,8 +47,8 @@ tape('string input is supported', function (test) {
 })
 
 tape('Files are moved not copied', function (test) {
-  var testFiles = getFilesMock(),
-      metalsmith = getMetalsmithMock()
+  var testFiles = getFilesMock()
+  var metalsmith = getMetalsmithMock()
 
   test.plan(10)
   moveUp()(testFiles, metalsmith, function () {
@@ -67,12 +67,12 @@ tape('Files are moved not copied', function (test) {
 })
 
 tape('Simple transforms are supported', function (test) {
-  var testFiles = getFilesMock(),
-      metalsmith = getMetalsmithMock(),
-      transforms = [
-        'posts/*',
-        'lib/**'
-      ]
+  var testFiles = getFilesMock()
+  var metalsmith = getMetalsmithMock()
+  var transforms = [
+    'posts/*',
+    'lib/**'
+  ]
 
   test.plan(9)
   moveUp(transforms)(testFiles, metalsmith, function () {
@@ -90,12 +90,12 @@ tape('Simple transforms are supported', function (test) {
 })
 
 tape('custom transforms are supported', function (test) {
-  var testFiles = getFilesMock(),
-      metalsmith = getMetalsmithMock(),
-      transform = {
-        pattern: 'bin/.git/.gitignore',
-        by: 2
-      }
+  var testFiles = getFilesMock()
+  var metalsmith = getMetalsmithMock()
+  var transform = {
+    pattern: 'bin/.git/.gitignore',
+    by: 2
+  }
 
   test.plan(6)
   moveUp(transform)(testFiles, metalsmith, function () {
@@ -110,17 +110,17 @@ tape('custom transforms are supported', function (test) {
 })
 
 tape('custom minimatch options are supported', function (test) {
-  var testFiles = getFilesMock(),
-      metalsmith = getMetalsmithMock(),
-      transforms = {
-        opts: {
-          dot: false
-        },
-        transforms: {
-          pattern: '**',
-          by: 2
-        }
-      }
+  var testFiles = getFilesMock()
+  var metalsmith = getMetalsmithMock()
+  var transforms = {
+    opts: {
+      dot: false
+    },
+    transforms: {
+      pattern: '**',
+      by: 2
+    }
+  }
 
   test.plan(5)
   moveUp(transforms)(testFiles, metalsmith, function () {
@@ -133,16 +133,16 @@ tape('custom minimatch options are supported', function (test) {
 })
 
 tape('multiple transforms are supported', function (test) {
-  var testFiles = getFilesMock(),
-      metalsmith = getMetalsmithMock(),
-      transformOne = {
-        pattern: 'bin/.git/.gitignore',
-        by: 2
-      },
-      transformTwo = {
-        pattern: 'posts/*',
-        by: 2
-      }
+  var testFiles = getFilesMock()
+  var metalsmith = getMetalsmithMock()
+  var transformOne = {
+    pattern: 'bin/.git/.gitignore',
+    by: 2
+  }
+  var transformTwo = {
+    pattern: 'posts/*',
+    by: 2
+  }
 
   test.plan(8)
   moveUp([transformOne, transformTwo])(testFiles, metalsmith, function () {
@@ -159,22 +159,22 @@ tape('multiple transforms are supported', function (test) {
 })
 
 tape('custom minimatch options with multiple transforms are supported', function (test) {
-  var testFiles = getFilesMock(),
-      metalsmith = getMetalsmithMock(),
-      transformOne = {
-        pattern: 'bin/**',
-        by: 2
-      },
-      transformTwo = {
-        pattern: 'posts/*',
-        by: 2
-      },
-      transforms = {
-        opts: {
-          dot: false
-        },
-        transforms: [transformOne, transformTwo]
-      }
+  var testFiles = getFilesMock()
+  var metalsmith = getMetalsmithMock()
+  var transformOne = {
+    pattern: 'bin/**',
+    by: 2
+  }
+  var transformTwo = {
+    pattern: 'posts/*',
+    by: 2
+  }
+  var transforms = {
+    opts: {
+      dot: false
+    },
+    transforms: [transformOne, transformTwo]
+  }
 
   test.plan(8)
   moveUp(transforms)(testFiles, metalsmith, function () {
@@ -189,4 +189,3 @@ tape('custom minimatch options with multiple transforms are supported', function
     test.notOk(testFiles['posts/~draft.md'])
   })
 })
-
