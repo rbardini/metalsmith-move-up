@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "a MetalSmith plugin for moving the full contents of a directory up one or more levels",
   "main": "lib/plugin.js",
+  "engines": {
+    "node": ">=8"
+  },
   "scripts": {
     "lint": "standard",
     "test": "tape test/*.js | faucet"
