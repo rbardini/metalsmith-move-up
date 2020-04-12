@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "standard",
-    "test": "tape test/*.js | faucet"
+    "test": "tape test/*.js"
   },
   "pre-commit": [
     "lint",
@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/rbardini/metalsmith-move-up",
   "devDependencies": {
-    "faucet": "0.0.1",
     "pre-commit": "1.2.2",
     "standard": "14.3.3",
     "tape": "4.13.2"
