@@ -21,7 +21,7 @@ npm install metalsmith-move-up --save
 ```
 
 ## Usage
-The example below can be found and ran from the [examples](./examples/) folder; it demonstrates
+The example below can be found and ran from the [eg](./eg/) folder; it demonstrates
 how to use Metalsmith MoveUp in a couple of different ways in a node.js app.
 
 ### Javascript
