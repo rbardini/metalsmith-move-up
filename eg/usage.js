@@ -1,7 +1,7 @@
 'use strict'
 
-var metalsmith = require('metalsmith')
-var moveUp = require('metalsmith-move-up')
+const metalsmith = require('metalsmith')
+const moveUp = require('metalsmith-move-up')
 
 // move everything in the build folder up one. The
 // build folder always represents the root for operations.

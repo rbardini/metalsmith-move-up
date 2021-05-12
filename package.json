@@ -4,7 +4,7 @@
   "description": "a MetalSmith plugin for moving the full contents of a directory up one or more levels",
   "main": "lib/plugin.js",
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "scripts": {
     "lint": "standard",
@@ -36,11 +36,11 @@
   "homepage": "https://github.com/rbardini/metalsmith-move-up",
   "devDependencies": {
     "pre-commit": "1.2.2",
-    "standard": "14.3.4",
-    "tape": "5.0.1"
+    "standard": "16.0.3",
+    "tape": "5.2.2"
   },
   "dependencies": {
-    "async": "3.2.0",
-    "multimatch": "4.0.0"
+    "async": "^3.2.0",
+    "multimatch": "^5.0.0"
   }
 }
