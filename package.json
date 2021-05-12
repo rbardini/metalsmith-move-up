@@ -14,6 +14,11 @@
     "lint",
     "test"
   ],
+  "files": [
+    "eg/*",
+    "lib/*",
+    "CONTRIBUTING.md"
+  ],
   "repository": {
     "type": "git",
     "url": "http://github.com/rbardini/metalsmith-move-up.git"
