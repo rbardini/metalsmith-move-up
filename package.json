@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-move-up",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "a MetalSmith plugin for moving the full contents of a directory up one or more levels",
   "main": "lib/plugin.js",
   "engines": {
