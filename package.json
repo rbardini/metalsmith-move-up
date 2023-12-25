@@ -36,8 +36,8 @@
   "homepage": "https://github.com/rbardini/metalsmith-move-up",
   "devDependencies": {
     "pre-commit": "1.2.2",
-    "standard": "16.0.3",
-    "tape": "5.2.2"
+    "standard": "17.1.0",
+    "tape": "5.7.2"
   },
   "dependencies": {
     "async": "^3.2.0",
